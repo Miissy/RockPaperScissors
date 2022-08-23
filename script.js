@@ -7,15 +7,21 @@ function getComputerChoice() {
     return randomChoice;
 }
 
+
 // Write a function that plays a single round of rock, paper, scissors
 // Returns a string that declares the winner of the round
+
+const playerText = document.querySelector('#playerText');
+const computerText = document.querySelector('#computerText');
+const result = document.querySelector('#result');
+
 
 let playerCount = 0;
 let computerCount = 0;
 
 function playRound(playerSelection, computerSelection) {
     computerSelection = getComputerChoice().toLowerCase();
-    playerSelection = playerSelection.toLowerCase();
+    playerSelection = playerChoice;
 
     if (computerSelection == playerSelection) {
         console.log('It\'s a tie!');
@@ -42,7 +48,7 @@ function game() {
     // Call playRound function to play a round of five games
     // Keeps a counter and decides a winner at the end
     for (let i = 0; i < 5; i++) {
-        const playerSelection = getComputerChoice();
+        const playerSelection = playerChoice;
         const computerSelection = getComputerChoice();
 
         console.log(playRound(playerSelection, computerSelection));
@@ -59,4 +65,35 @@ function game() {
     console.log(`Player: ${playerCount} Computer: ${computerCount}`);
 }
 
-game();
+
+// Function that checks the result
+function checkWinner() {
+    if (playerCount || computerCount === 5) {
+        if (playerCount > computerCount) {
+            return 'Result: Player won!';
+        } else {
+            return 'Result: Computer won!';
+        }
+    }
+};
+
+
+// Add an event listener to to the buttons that call playRound function
+// Returns the correct playerSelection everytime button is clicked
+const btn = document.querySelectorAll('#btn');
+
+btn.forEach(button => button.addEventListener('click', () => {
+    playerChoice = button.textContent.toLowerCase();
+    playRound();
+
+    playerText.textContent = `Player: ${playerCount}`;
+    computerText.textContent = `Computer: ${computerCount}`;
+
+    if (playerCount === 5 || computerCount === 5) {
+        if (playerCount > computerCount) {
+            result.textContent = 'Result: Player won!';
+        } else {
+            result.textContent = 'Result: Computer won!';
+        }
+    }
+}));

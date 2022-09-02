@@ -3,19 +3,36 @@
 
 <head>
     <title>Rock Paper Scissors Project</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div id="resultDiv">
-        <h1 class="gameText" id="playerText">Player: </h1>
-        <h1 class="gameText" id="computerText">Computer: </h1>
-        <h1 class="gameText" id="result">Result: </h1>
+    <!-- <div class="statusTop">
+        <div class="winLoose">
+            <img src="img/win.png">
+            <img src="img/lose.png">
+        </div>
     </div>
 
-    <button id="btn">Rock</button>
-    <button id="btn">Paper</button>
-    <button id="btn">Scissors</button>
+    <div class="statusBottom">
+        <div class="playerComputer">
+            <img src="img/paper.png">
+            <img src="img/rock.png">
+        </div>
+    </div> -->
+
+    <div class="resultDiv">
+        <h1 class="gameText" id="playerText">Player: </h1>
+        <h1 class="gameText" id="computerText">Computer: </h1>
+    </div>
+    <h1 class="gameText" id="result">...</h1>
+
+    <div class="buttons">
+        <button id="btn"><img src="img/rock.png">Rock</button>
+        <button id="btn"><img src="img/paper.png">Paper</button>
+        <button id="btn"><img src="img/scissors.png">Scissors</button>
+    </div>
 
     <script src="script.js"></script>
 

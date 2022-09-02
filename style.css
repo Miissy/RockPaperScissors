@@ -1,0 +1,43 @@
+#btn {
+    font-size: 0px;
+    margin: 32px;
+    background-color: #fff;
+}
+
+#btn img {
+    width: 150px;
+    height: 150px;
+}
+
+.statusTop,
+.statusBottom {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+
+.statusTop img,
+.statusBottom img {
+    width: 150px;
+    height: 150px;
+}
+
+.resultDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 72px;
+    font-size: 12px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

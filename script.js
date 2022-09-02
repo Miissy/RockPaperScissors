@@ -65,35 +65,40 @@ function game() {
     console.log(`Player: ${playerCount} Computer: ${computerCount}`);
 }
 
+// Resets score to 0 for player and computer
+function reset() {
+    playerCount = 0;
+    computerCount = 0;
+}
 
-// Function that checks the result
+// Checks if anyone have scored 5 and announces the winner
 function checkWinner() {
-    if (playerCount || computerCount === 5) {
+    if (playerCount === 5 || computerCount === 5) {
         if (playerCount > computerCount) {
-            return 'Result: Player won!';
+            result.textContent = 'Player won!';
+            reset();
         } else {
-            return 'Result: Computer won!';
+            result.textContent = 'Computer won!';
+            reset();
         }
     }
-};
-
+}
 
 // Add an event listener to to the buttons that call playRound function
 // Returns the correct playerSelection everytime button is clicked
 const btn = document.querySelectorAll('#btn');
 
-btn.forEach(button => button.addEventListener('click', () => {
-    playerChoice = button.textContent.toLowerCase();
-    playRound();
+function startGame() {
+    btn.forEach(button => button.addEventListener('click', () => {
+        playerChoice = button.textContent.toLowerCase();
+        playRound();
 
-    playerText.textContent = `Player: ${playerCount}`;
-    computerText.textContent = `Computer: ${computerCount}`;
+        playerText.textContent = `Player: ${playerCount}`;
+        computerText.textContent = `Computer: ${computerCount}`;
+        result.textContent = '...';
 
-    if (playerCount === 5 || computerCount === 5) {
-        if (playerCount > computerCount) {
-            result.textContent = 'Result: Player won!';
-        } else {
-            result.textContent = 'Result: Computer won!';
-        }
-    }
-}));
+        checkWinner();
+    }));
+}
+
+startGame();
